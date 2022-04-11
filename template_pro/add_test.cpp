@@ -38,7 +38,7 @@ template <int i>class A
 //uint8_t,bool，指针函数都可以算是整型，因此都可作为模板参数
 template <uint8_t a,typename b,void *c>class B {};
 template <bool,void (*a)()>class C {};//整了一个指针函数作为模板参数
-template <void (A<3>::*a)(int)> class D{};
+template <void (A<3>::*a)(int)> class D{};//整吐了，这个成员函数的指针
 
 template <int i>int Add(int x){
     return i+x;
@@ -51,6 +51,8 @@ void foo(){
     D<&A<3>::foo>d;
     int x=Add<3>(6);
 }
+
+//template <float i>class E{};//哒咩
 
 
 
@@ -85,7 +87,8 @@ int main(){
     int d=getvalue<int>(1);//返回值不能作为推导依据
     //cout<<c<<"\t"<<d<<endl;
 
-    float v=0.4;
+    float v=0.2;
     int i=c_style_cast<int>(v);//（匹配顺序）匹配时优先考虑指定的类型，然后自动推导，DstT吃掉了int，SrcT由v自动推导，反之则不行
     cout<<i<<"\t"<<v<<endl;
+    system("pause");
 }

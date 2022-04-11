@@ -182,7 +182,8 @@ int main(){
 	CreatTree tree;
 	tree.root=tree.creatTree_expand(in_expand);
 	//tree.pre_inTreeNode();
-	tree.postTreeNode(tree.root);
+	tree.by_TreeNode(tree.root);
 	//tree.pre_inTreeNode(tree.root);
 	//delete root;
+	system("pause");
 }
